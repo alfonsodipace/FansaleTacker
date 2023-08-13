@@ -1,0 +1,5 @@
+requests
+selenium
+pathlib
+python-dotenv
+fake-useragent
