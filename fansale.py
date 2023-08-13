@@ -3,7 +3,6 @@ import requests
 from dotenv import load_dotenv
 from pathlib import Path
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -25,7 +24,7 @@ url = os.getenv("FANSALE_URL")
 discord_webhook_url = os.getenv("DISCORD_WEBHOOK_URL")
 discord_user_id = os.getenv("DISCORD_USER_ID")
 ua = UserAgent()
-options = Options()
+options = webdriver.ChromeOptions()()
 # options.add_argument("--headless=new")
 # options.add_argument("user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36")
 options.add_argument(ua.random)
