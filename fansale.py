@@ -29,7 +29,9 @@ options = Options()
 # options.add_argument("--headless=new")
 # options.add_argument("user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36")
 options.add_argument(ua.random)
-driver = webdriver.Chrome(options=options)
+driver = webdriver.Chrome(r'/usr/bin/chromedriver')
+driver.options = options
+# driver = webdriver.Chrome(options=options)
 
 ua = UserAgent()
 # Fetch the webpage
