@@ -28,7 +28,7 @@ while True:
     ua = UserAgent()
     options = webdriver.ChromeOptions()
     options.add_argument("--headless=new")
-    # options.add_argument("user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36")
+    # options.add_argument("user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 20_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36")
     options.add_argument(ua.random)
     driver = webdriver.Chrome(options=options)
     # driver.options = options
@@ -38,16 +38,17 @@ while True:
     # Fetch the webpage
     try:
         driver.get("https://www.fansale.it")
+        time.sleep(5)
         driver.get("https://www.fansale.it/fansale/tickets/pop-amp-rock/marracash/464447/")
         driver.get("https://www.fansale.it/fansale/tickets/pop-amp-rock/marracash/464447/16316142")
     except Exception as e:
         print(e)
         driver.quit()
-        time.sleep(120)
+        time.sleep(20)
 
     # Check if the specified xpath exists with the given value
     try:
-        element = WebDriverWait(driver, 10).until(
+        element = WebDriverWait(driver, 20).until(
             EC.text_to_be_present_in_element(
                 (
                     By.XPATH,
@@ -95,7 +96,7 @@ while True:
                         message = f"Ticket price {prices[0]}\nurl: {url}"
                         send_discord_message(discord_webhook_url, message)
         except:
-            time.sleep(120)
+            time.sleep(20)
     # Close the WebDriver
     driver.quit()
-    time.sleep(30)
+    time.sleep(20)
