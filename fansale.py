@@ -24,6 +24,7 @@ def send_discord_message(webhook_url, message):
 url = os.getenv("FANSALE_URL")
 discord_webhook_url = os.getenv("DISCORD_WEBHOOK_URL")
 discord_user_id = os.getenv("DISCORD_USER_ID")
+
 while True:
     ua = UserAgent()
     options = webdriver.ChromeOptions()
